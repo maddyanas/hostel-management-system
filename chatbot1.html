@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chatbot1body {.css">
+    <title>Responsive Chatbot</title>
+    <style>
+        body {
+            position: relative;
+            min-height: 100vh;
+        }
+    
+        .back-button {
+            position: absolute;
+            bottom: 100px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #2980b9;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        .back-button:hover {
+            background-color: #2471a3;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">ChatBot</div>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="user-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <script src="chatbot1sendMessage() {.js"></script>
+
+    <button class="back-button" onclick="goBack()">Back</button>
+    <script>
+    function goBack() {
+        // Replace 'your-target-page.html' with the actual page URL you want to go back to
+        window.location.href = 'index.php';
+      }
+     </script>
+     </body>
+</html>

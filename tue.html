@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delicious Meals</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to right, #3498db, #2c3e50);
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .image-wrapper {
+      text-align: center;
+      margin: 10px;
+      transition: transform 0.3s ease-in-out;
+      position: relative;
+    }
+
+    .image {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .image-text {
+      font-size: 16px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .image-wrapper:hover .image {
+      transform: scale(1.1);
+    }
+
+    .back-button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #2980b9;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-button:hover {
+      background-color: #2471a3;
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (min-width: 768px) {
+      .image-container {
+        justify-content: space-around;
+      }
+
+      .image-wrapper {
+        flex: 0 0 30%;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .image-wrapper {
+        flex: 0 0 25%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Delicious Meals</h1>
+  <div class="image-container">
+    <div class="image-wrapper">
+      <img class="image" src="https://static.toiimg.com/photo/imgsize-2271536,msid-78596343/78596343.jpg" alt="Image 1" height="300" width="300">
+      <p class="image-text">Breakfast (Idli)</p>
+    </div>
+
+    <div class="image-wrapper">
+      <img class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLmxJ7yPIpI2J3BYaGYQ6vT9Co4oe2_egF6g&usqp=CAU" alt="Image 2" height="300" width="300">
+      <p class="image-text">Lunch (Veg Biryani)</p>
+    </div>
+
+    <div class="image-wrapper">
+      <img class="image" src="https://www.nestleprofessional.in/sites/default/files/2022-08/MAGGI-Noodles-Chakna.jpg" alt="Image 3" height="300" width="300">
+      <p class="image-text">Dinner (Maggi)</p>
+    </div>
+  </div>
+
+  <button class="back-button" onclick="goBack()">Back</button>
+
+  <script>
+    function goBack() {
+      // Replace 'your-target-page.html' with the actual page URL you want to go back to
+      window.location.href = 'food.html';
+    }
+  </script>
+</body>
+
+</html>

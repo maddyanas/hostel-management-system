@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Rooms</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(to right, #665eff, #66a8ff);
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            text-transform: uppercase;
+        }
+
+        .room-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .room-card {
+            width: 300px;
+            margin: 20px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .room-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .room-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            transition: filter 0.3s;
+        }
+
+        .room-card:hover .room-image {
+            filter: brightness(80%);
+        }
+
+        .room-details {
+            text-align: left;
+            color: #555;
+        }
+
+        .room-details h2 {
+            margin-bottom: 10px;
+            font-size: 1.4em;
+            color: #333;
+        }
+
+        .room-details p {
+            margin: 5px 0;
+        }
+
+        .room-details p.price {
+            font-weight: bold;
+            color: #ff5e62;
+        }
+
+        .room-details p.available {
+            color: #47b788;
+        }
+
+        footer {
+            background: linear-gradient(to right, #667fff, #5e74ff);
+            color: #fff;
+            text-align: center;
+            padding: 0.5em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 0.8em;
+            box-shadow: 0px -6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Hostel Rooms Available</h1>
+    </header>
+
+    <div class="room-container">
+        <!-- Room 1 -->
+        <div class="room-card">
+            <img src="https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto,w_600/e_improve/e_sharpen:10/e_saturation:10/v1585636735/Website/CMS-Uploads/n6b14qwd1p1lwzs8vqb1.jpg" alt="Room 1" class="room-image">
+            <div class="room-details">
+                <h2>Single AC Room</h2>
+                <p>Price: Rs.150,000</p>
+                <p>Available: Yes</p>
+            </div>
+        </div>
+
+        <!-- Room 2 -->
+        <div class="room-card">
+            <img src="https://alexandro.in/image/mumbai/yourspace-panvel/2.jpg" alt="Room 2" class="room-image">
+            <div class="room-details">
+                <h2>Two sharing AC Room</h2>
+                <p>Price: Rs.120,000</p>
+                <p>Available: No</p>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <img src="https://housing-images.n7net.in/01c16c28/c6d5d4960bf39e0cf15ea13836b9a5ea/v0/medium/3_rk_-for-rent-ganapathy-Coimbatore-bedroom.jpg" alt="Room 2" class="room-image">
+            <div class="room-details">
+                <h2>Three sharing AC Room</h2>
+                <p>Price: Rs.100,000</p>
+                <p>Available: No</p>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <img src="https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto,w_600/e_improve/e_sharpen:10/e_saturation:10/v1585636735/Website/CMS-Uploads/n6b14qwd1p1lwzs8vqb1.jpg" alt="Room 1" class="room-image">
+            <div class="room-details">
+                <h2>Single Non-AC Room</h2>
+                <p>Price: Rs.80,000</p>
+                <p>Available: Yes</p>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <img src="https://alexandro.in/image/mumbai/yourspace-panvel/2.jpg" alt="Room 2" class="room-image">
+            <div class="room-details">
+                <h2>Two sharing Non-AC Room</h2>
+                <p>Price: Rs.70,000</p>
+                <p>Available: No</p>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <img src="https://housing-images.n7net.in/01c16c28/c6d5d4960bf39e0cf15ea13836b9a5ea/v0/medium/3_rk_-for-rent-ganapathy-Coimbatore-bedroom.jpg" alt="Room 2" class="room-image">
+            <div class="room-details">
+                <h2>Three sharing Non-AC Room</h2>
+                <p>Price: Rs.60,000</p>
+                <p>Available: No</p>
+            </div>
+        </div>
+
+        <!-- Add more rooms as needed -->
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Hostel Name. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+</body>
+
+</html>

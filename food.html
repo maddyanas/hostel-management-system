@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Days of the Week</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #3498db, #2980b9);
+      color: #ecf0f1;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      transition: background 0.5s ease;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #172430;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background 0.5s ease;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin: 10px 0;
+      color: #ecf0f1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .day-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .day {
+      padding: 20px 40px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #fff;
+      background: #3498db;
+      border: none;
+      border-radius: 12px;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .day:hover {
+      background: #2980b9;
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      color: #ecf0f1;
+    }
+
+    .image-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .image-container.show {
+      opacity: 1;
+    }
+
+    .image {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .image.show {
+      opacity: 1;
+    }
+
+    .back-button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #2980b9;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-button:hover {
+      background-color: #2471a3;
+      transform: scale(1.1);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Additional styling */
+    .day-container {
+      text-align: center;
+    }
+
+    .day-container a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    
+
+    .day-container a:visited {
+      color: #ecf0f1;
+    }
+
+    /* Styling for larger screens */
+    @media only screen and (min-width: 768px) {
+      header {
+        max-width: 600px;
+      }
+
+      .day-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Days of the Week</h1>
+  </header>
+
+  <div class="day-container">
+    <a href="Monday.html" class="day" onclick="showImage('image-monday.jpg')">Monday</a>
+    <a href="tue.html" class="day" onclick="showImage('image-tuesday.jpg')">Tuesday</a>
+    <a href="wed.html" class="day" onclick="showImage('image-wednesday.jpg')">Wednesday</a>
+    <a href="Monday.html" class="day" onclick="showImage('image-thursday.jpg')">Thursday</a>
+    <a href="tue.html" class="day" onclick="showImage('image-friday.jpg')">Friday</a>
+    <a href="wed.html" class="day" onclick="showImage('image-saturday.jpg')">Saturday</a>
+    <a href="sun.html" class="day" onclick="showImage('image-sunday.jpg')">Sunday</a>
+  </div>
+
+  <div id="imageContainer" class="image-container">
+    <img id="imagePlaceholder" class="image" src="" alt="Day Image">
+  </div>
+
+  <button class="back-button" onclick="goBack()">Back</button>
+
+  <script>
+    function showImage(day) {
+      const imageContainer = document.getElementById('imageContainer');
+      const imagePlaceholder = document.getElementById('imagePlaceholder');
+
+      imageContainer.classList.remove('show');
+      imagePlaceholder.classList.remove('show');
+
+      setTimeout(() => {
+        imagePlaceholder.src = day;
+        imageContainer.classList.add('show');
+        imagePlaceholder.classList.add('show');
+      }, 500);
+    }
+
+    function goBack() {
+      window.location.href = 'menu.html';
+    }
+  </script>
+</body>
+
+</html>

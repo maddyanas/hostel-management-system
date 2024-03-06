@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.5s ease forwards;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+        animation: slideInDown 0.5s ease forwards;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #666;
+        animation: slideInLeft 0.5s ease forwards;
+      }
+
+      input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        animation: slideInRight 0.5s ease forwards;
+      }
+
+      button {
+        width: 100%;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        animation: slideInUp 0.5s ease forwards;
+      }
+
+      button:hover {
+        background: #0056b3;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInDown {
+        from {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          transform: translateX(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInUp {
+        from {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Send link to email</h2>
+      <form action="#">
+        <label for="email">Enter your email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <button id="sendLink">Send link</button>
+      </form>
+    </div>
+
+    <script>
+      const sendLinkButton = document.getElementById("sendLink");
+      const emailInput = document.getElementById("email");
+
+      sendLinkButton.addEventListener("click", () => {
+        const email = emailInput.value;
+        const link = "https://forms.gle/kpy6xYFxWCprojqW7"; // Replace with the link you want to send
+        const subject = "Check out this link";
+        const body = `Hello there,\n\nHere's the link you asked for:\n\n${link}\n\nRegards,\nYou`;
+
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(body)}`;
+      });
+    </script>
+  </body>
+</html>

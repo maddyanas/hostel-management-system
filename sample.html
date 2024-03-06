@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Excel Data as Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+            animation: gradientAnimation 10s infinite;
+        }
+
+        #excelInput {
+            display: none; /* Hide the default file input */
+        }
+
+        #excelButtonContainer {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 90%; /* Adjusted height to move the button slightly above */
+        }
+
+        .custom-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: -20px; /* Move the button slightly above */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            animation: bounceAnimation 1s infinite;
+        }
+
+        .custom-btn:hover {
+            background-color: #45a049;
+            transform: scale(1.05); /* Scale up on hover */
+        }
+
+        #dataTable {
+            margin: 20px;
+            border-collapse: collapse;
+            width: 100%;
+            background-color: white;
+            opacity: 0.9;
+            border-radius: 5px;
+        }
+
+        #dataTable, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes bounceAnimation {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<!-- Display data as a table -->
+<table id="dataTable" border="1">
+    <!-- Table content will be dynamically added here -->
+</table>
+
+<!-- Custom-styled browse button -->
+<div id="excelButtonContainer">
+    <label for="excelInput" class="custom-btn">Browse Excel File</label>
+    <input type="file" id="excelInput" accept=".xlsx, .xls" onchange="handleFile()" style="display: none;">
+</div>
+
+<script type="text/javascript">
+    function handleFile() {
+        var input = document.getElementById('excelInput');
+        var file = input.files[0];
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var data = new Uint8Array(e.target.result);
+                var workbook = XLSX.read(data, { type: 'array' });
+
+                // Assuming the first sheet is the relevant one
+                var sheetName = workbook.SheetNames[0];
+                var sheet = workbook.Sheets[sheetName];
+
+                // Convert sheet data to array of arrays
+                var dataArray = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+                // Display data as a table
+                displayData(dataArray);
+            };
+
+            reader.readAsArrayBuffer(file);
+        }
+    }
+
+    function displayData(dataArray) {
+        var table = document.getElementById('dataTable');
+        table.innerHTML = ''; // Clear existing content
+
+        // Create table header
+        var headerRow = table.insertRow(0);
+        for (var i = 0; i < dataArray[0].length; i++) {
+            var headerCell = headerRow.insertCell(i);
+            headerCell.textContent = dataArray[0][i];
+        }
+
+        // Create table rows with data
+        for (var j = 1; j < dataArray.length; j++) {
+            var dataRow = table.insertRow(j);
+            for (var k = 0; k < dataArray[j].length; k++) {
+                var dataCell = dataRow.insertCell(k);
+                dataCell.textContent = dataArray[j][k];
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
